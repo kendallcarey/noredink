@@ -7,5 +7,6 @@ student_id = gets.to_i
 puts "Enter Question Amount:"
 question_amount = gets.to_i
 
-Question.get_student_questions(student_id, question_amount)
+puts "Question Ids:"
+puts Question.get_student_questions(student_id, question_amount)
 
