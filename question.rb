@@ -28,6 +28,8 @@ class Question
   end
   def self.get_student_questions(student_id, question_amount)
     questions = load_from_csv
+    raise 'invalid question amount' if question_amount.nil? || question_amount <= 0
+    raise 'student id required' if student_id.nil?
     sorted_questions = {}
     # sort questions into strands
     questions.each do |question|

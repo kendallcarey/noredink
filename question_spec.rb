@@ -8,7 +8,20 @@ describe Question do
   end
 
   describe '.get_student_questions' do
-    result = Question.get_student_questions(1,1)
-    expect(result.length == 1).to be true
+
+    it 'should error if the question amount is nil or less than 1' do
+      expect {
+        Question.get_student_questions(1, nil)
+      }.to raise_error
+
+      expect {
+        Question.get_student_questions(1, -1)
+      }.to raise_error
+    end
+
+    it 'should return question  ids' do
+      result = Question.get_student_questions(1,1)
+      expect(result.length == 1).to be true
+    end
   end
 end
